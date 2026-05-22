@@ -1,5 +1,5 @@
 class Bank:
-    def __init__(self, account_list = None, id_count = 0):
+    def __init__(self, account_list = None):
         
         if account_list == None:
             self.account_list = []
@@ -15,9 +15,15 @@ class Bank:
                 if i.cpf == int(identifier):
                     return i
         
-        except:
-            for i in self.account_list:
-                if i.email == identifier:
-                    return i
+        except ValueError:
+            print("CPF Inválido")
                 
         return None
+    
+
+
+    def create_account(self, cpf, name, age, email, password):
+        verify_account = self.consult_account(cpf)
+
+        if verify_account:
+            print("Este CPF já está sendo utilizado.")
