@@ -1,0 +1,44 @@
+# ===========================
+# ROADMAP DO SISTEMA
+# ===========================
+
+# 1. user.py
+#    - Criar classe User com __init__ (name, age, email, role)
+
+# 2. account.py
+#    - Criar classe Account com __init__ (id, email, balance, password, history=None)
+
+# 3. bank.py
+#    - Criar classe Bank com __init__ (account_list=None, id_count=0)
+#    - Método consult_account
+#    - Método create_account
+#    - Método delete_account
+#    - Método deposit
+#    - Método withdraw
+#    - Método transfer
+#    - Método show_accounts
+
+# 4. product.py
+#    - Criar classe Product com __init__ (id, name, price, storage)
+
+# 5. market.py
+#    - Criar classe Market com __init__ (itens_list=None, itens_updates=None, id_count=0)
+#    - Método consult_product (já feito)
+#    - Método add_product (já feito)
+#    - Método delete_product (já feito)
+#    - Método sell_product (já feito)
+#    - Método add_stock (já feito)
+#    - Método show_itens (já feito)
+#    - Método show_update (já feito)
+
+# 6. main.py
+#    - Importar tudo
+#    - Criar instância do Bank e do Market
+#    - While True com menu de opções
+
+# ===========================
+# ORDEM DE PRIORIDADE
+# ===========================
+# 1. Faça os construtores de todas as classes primeiro
+# 2. Depois implemente os métodos do Bank
+# 3. Por último monte o main.py
