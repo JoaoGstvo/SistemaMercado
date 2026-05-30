@@ -4,5 +4,5 @@ class User:
         self.name = name
         self.age = age
         self.role = role
-
+        self.account = None
     
