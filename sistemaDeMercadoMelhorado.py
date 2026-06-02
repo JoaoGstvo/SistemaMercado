@@ -6,7 +6,6 @@
 # Ver histórico de vendas
 
 class Product:
-
     def __init__(self, id, name, price, storage):
         self.id = id
         self.name = name
@@ -16,7 +15,6 @@ class Product:
 
 
 class Market:
-
     def __init__(self, itens_list = None, itens_updates = None):
         
         if itens_list == None:
@@ -116,7 +114,7 @@ class Market:
     def show_itens(self):
         if len(self.itens_list) > 0:
             for i in self.itens_list:
-                print(i.id, i.name, i.price, i.storage)
+                print(f"{i.id} | {i.name} | R${i.price} | {i.storage}")
         else:
             print("Nenhum produto encontrado.")
 

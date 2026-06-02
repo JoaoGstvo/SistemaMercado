@@ -1,3 +1,5 @@
+from Bank import *
+
 class User:
     def __init__ (self, cpf, name, age, role):
         self.cpf = cpf

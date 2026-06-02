@@ -10,6 +10,7 @@ produto = dict(id = 0, name = "", price = 0, estoque = 0)
 lista_produto = []
 extrato = []
 
+
 def cadastrar_novo_produto(produto, lista_produto):
     nome_produto = input("Qual produto deseja cadastrar?: ")
 
