@@ -4,7 +4,7 @@ class Account:
         self.email = email
         self.password = password
 
-        if self.history == None:
+        if history == None:
             self.history = []
         else:
             self.history = history

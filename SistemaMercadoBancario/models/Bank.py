@@ -62,17 +62,17 @@ class Bank:
 
     def show_account(self):
         for i in self.user_list:
-            print(f"{i.cpf} | {i.name} | {i.age} | {i.role} | {i.email} | {i.password} | {i.balance} \n")
+            print(f"{i.cpf} | {i.name} | {i.age} | {i.role} | {i.account.email} | {i.account.password} | {i.account.balance} \n")
 
 
 
     def add_balance (self, money):
-            self.balance += money
+            self.account.balance += money
 
 
 
     def withdraw (self, money):
-            self.balance -= money
+            self.account.balance -= money
 
 
 
