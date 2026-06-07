@@ -1,5 +1,5 @@
-from SistemaMercadoBancario.models.User import User
-from SistemaMercadoBancario.models.Account import Account
+from .User import User
+from .Account import Account
 
 class Bank:
     def __init__(self, user_list = None, history = None):
@@ -66,25 +66,20 @@ class Bank:
 
 
 
-    def add_balance (self, money):
-            self.account.balance += money
+    def add_balance (self, user, money):
+            user.account.balance += money
 
 
 
-    def withdraw (self, money):
-            self.account.balance -= money
+    def withdraw (self, user, money):
+            user.account.balance -= money
 
+    def transfer_balance(self, destiny, balance, user):
+        verify_account = self.consult_account(destiny)
 
+        if verify_account:
+            user.account.balance -= balance
+            verify_account.account.balance += balance
 
-    # def transfer_balance(self, cpf1, cpf2, balance):
-    #     account1 = self.consult_account(cpf1)
-    #     account2 = self.consult_account(cpf2)
-
-    #     if account1:
-    #         if account2:
-    #             account2.balance += balance
-    #             account1.balance -= balance
-    #         else:
-    #             print("Conta de destino não encontrada")
-    #     else:
-    #         print("Conta não encontrada")
+        else:
+            print("Conta de destino não encontrada")
