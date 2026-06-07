@@ -81,7 +81,6 @@ class Market:
             print("Produto não encontrado")
 
 
-
     def delete_product(self, name):
         product_to_delete = self.consult_product(name)
 
@@ -92,7 +91,6 @@ class Market:
 
         else:
             print("Este produto não existe")
-
 
 
     def add_stock(self, product, storage):

@@ -57,6 +57,7 @@ class Bank:
 
         else:
             self.user_list.remove(account)
+            print("Conta deletada.")
 
 
 
@@ -74,6 +75,8 @@ class Bank:
     def withdraw (self, user, money):
             user.account.balance -= money
 
+
+
     def transfer_balance(self, destiny, balance, user):
         verify_account = self.consult_account(destiny)
 
@@ -83,3 +86,9 @@ class Bank:
 
         else:
             print("Conta de destino não encontrada")
+
+
+
+    def show_history(self, user):
+        for i in user.account.history:
+            print(i)

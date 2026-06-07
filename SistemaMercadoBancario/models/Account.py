@@ -1,3 +1,4 @@
+
 class Account:
     def __init__ (self, balance, email, password, history = None):
         self.balance = balance
@@ -8,5 +9,3 @@ class Account:
             self.history = []
         else:
             self.history = history
-
-

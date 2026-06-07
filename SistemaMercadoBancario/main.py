@@ -5,6 +5,7 @@ bank = Bank()
 user_logged = None
 
 
+
 def login(identifier, password):
     verify_account = bank.consult_account(identifier)
 
@@ -14,8 +15,8 @@ def login(identifier, password):
             return user_logged
         else:
             print("Senha incorreta.")
-        
-        
+
+
 
 def menu_all(user):
     while True:
@@ -43,6 +44,13 @@ def menu_all(user):
                 else:
                     menu_market()
 
+            case 0:
+                print("Saindo...")
+                break
+
+            case _:
+                print("Opção inválida.")
+
 
 
 def menu_adm_bank():
@@ -58,8 +66,8 @@ def menu_adm_bank():
                 5. Mostrar Contas
                 6. Editar Conta
                 7. Deletar Conta
-                9. Histórico Banco
-                10. Voltar
+                8. Histórico Banco
+                9. Voltar
                 0. Sair
                 """
         print(menu)
@@ -80,15 +88,17 @@ def menu_adm_bank():
                 bank.transfer_balance(destiny, qtd, user_logged)
 
             case 4:
-                pass
+                bank.show_history(user_logged)
             case 5:
                 bank.show_account()
             case 6:
-                pass
+                user = int(input("Conta a ser excluída (CPF): "))
+                bank.delete_account(user)
             case 7:
                 pass
             case 8:
-                menu_all()
+                for i in bank.history:
+                    print(i)
             case 0:
                 break
 
@@ -104,6 +114,7 @@ def menu_bank():
                 2. Sacar
                 3. Transferir
                 4. Extrato
+                5. Voltar
                 0. Sair
                 """
         print(menu)
@@ -123,7 +134,10 @@ def menu_bank():
                 qtd = int(input("Quanto deseja Transferir: "))
                 bank.transfer_balance(destiny, qtd, user_logged)
             case 4:
-                pass
+                bank.show_history(user_logged)
+
+            case 5:
+                menu_all(user_logged)
             case 0:
                 pass
 
@@ -203,7 +217,7 @@ while True:
 
     match option:
         case 1:
-            identifier = input("Email ou CPF:")
+            identifier = input("Email ou CPF: ")
             password = input("Senha: ")
             user_logged = login(identifier, password)
 
