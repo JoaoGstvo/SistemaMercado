@@ -1,4 +1,4 @@
-from Product import Product
+from .Product import Product
 
 class Market:
     def __init__(self, itens_list = None):
@@ -8,7 +8,7 @@ class Market:
         else:
             self.itens_list = itens_list
 
-    
+
 
     def consult_product(self, name):
         for i in self.itens_list:
@@ -30,13 +30,15 @@ class Market:
 
 
 
-    def sell_product(self, name, qtd):
+    def sell_product(self, name, qtd, user):
         verify = self.consult_product(name)
 
         if verify:
             if verify.storage > 0:
                 if verify.storage <= qtd:
                     verify.storage -= qtd
+                    amount = qtd * verify.price
+                    user.account.balance -= amount
                     print("Vendido.")
                 else:
                     print("Quantidade em estoque não disponível.")
@@ -46,6 +48,39 @@ class Market:
             print("Este produto não existe")
 
 
+
     def show_product(self):
         for i in self.itens_list:
             print(i.name, i.price, i.storage)
+
+
+
+    def delete_product(self, name):
+        verify = self.consult_product(name)
+
+        if verify:
+            self.itens_list.remove(verify)
+        else:
+            print("Produto não encontrado")
+
+
+        
+    def edit_item(self, name, price, storage, verify):
+            
+            if name == "":
+                pass
+            else:
+                verify.name = name
+
+            if price == "":
+                pass
+            else:
+                verify.price = price
+
+            if storage == "":
+                pass
+            else:
+                verify.storage = storage
+
+
+

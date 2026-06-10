@@ -67,12 +67,12 @@ class Bank:
 
 
 
-    def add_balance (self, user, money):
+    def add_balance (user, money):
             user.account.balance += money
 
 
 
-    def withdraw (self, user, money):
+    def withdraw (user, money):
             user.account.balance -= money
 
 
@@ -89,6 +89,12 @@ class Bank:
 
 
 
-    def show_history(self, user):
+    def show_history(user):
         for i in user.account.history:
             print(i)
+
+
+
+    def consult_balance(user):
+        return user.account.balance
+            
