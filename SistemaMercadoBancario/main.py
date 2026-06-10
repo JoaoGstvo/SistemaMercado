@@ -96,7 +96,17 @@ def menu_adm_bank():
                 bank.show_account()
 
             case 6:
-                pass
+                cpf = input("CPF da conta: ")
+                verify = bank.consult_account(cpf)
+
+                if verify:
+                    new_name = input("Novo nome: ")
+                    new_email = input("Novo email: ")
+                    new_password = input("Nova senha: ")
+
+                    bank.edit_product(new_name, new_email, new_password, verify)
+                else:
+                    print("Conta não encontrada.")
 
             case 7:
                 user = int(input("Conta a ser excluída (CPF): "))
@@ -172,22 +182,40 @@ def menu_adm_market():
 
         match option:
             case 1:
-                name = input("Nome do produto: ")
-                qtd = int(input("Quantidade desejada: "))
+                try:
+                    name = input("Nome do produto: ").lower().strip()
+                    if name == "":
+                        raise ValueError
+                    
+                    qtd = int(input("Quantidade desejada: "))
 
-                market.sell_product(name, qtd, user_logged)
+                    if qtd >= 1:
+                        market.sell_product(name, qtd, user_logged)
+
+                except ValueError:
+                    print("Valor inválido!")
+
 
             case 2:
                 market.show_product()
+
             case 3:
                 pass
 
             case 4:
-                name = input("Novo nome: ")
-                price = float(input("Novo preço: "))
-                storage = int(input("Novo Estoque: "))
+                try:
+                    name = input("Nome: ").lower().strip()
 
-                market.add_product(name, price, storage)
+                    if name == "":
+                        raise ValueError
+                    
+                    price = float(input("Preço: "))
+                    storage = int(input("Estoque: "))
+
+                    market.add_product(name, price, storage)
+
+                except ValueError:
+                    print("Valor inválido!")
 
             case 5:
                 name = input("Nome do produto: ")
@@ -266,7 +294,7 @@ while True:
 
     match option:
         case 1:
-            identifier = input("Email ou CPF: ")
+            identifier = int(input("CPF: "))
             password = input("Senha: ")
             user_logged = login(identifier, password)
 

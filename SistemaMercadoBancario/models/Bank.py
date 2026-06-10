@@ -67,12 +67,12 @@ class Bank:
 
 
 
-    def add_balance (user, money):
+    def add_balance (self, user, money):
             user.account.balance += money
 
 
 
-    def withdraw (user, money):
+    def withdraw (self, user, money):
             user.account.balance -= money
 
 
@@ -89,12 +89,30 @@ class Bank:
 
 
 
-    def show_history(user):
+    def show_history(self, user):
         for i in user.account.history:
             print(i)
 
 
 
-    def consult_balance(user):
+    def consult_balance(self, user):
         return user.account.balance
             
+
+
+    def edit_product(self, name, email, password, verify):
+            
+        if name == "":
+            pass
+        else:               
+            verify.name = name
+
+        if email == "":
+            pass
+        else:
+            verify.account.email = email
+
+        if password == "":
+            pass
+        else:
+            verify.account.password = password
