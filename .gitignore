@@ -1,0 +1,20 @@
+# VS Code (aqui fica a conexão do SQLTools com a senha)
+.vscode/
+
+# Arquivos de sessão do SQLTools
+*.session.sql
+
+# Variáveis de ambiente / senhas
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Dados e notebooks
+*.csv
+*.xlsx
+.ipynb_checkpoints/
